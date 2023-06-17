@@ -7,7 +7,15 @@ const addItem = () => {
     let new_value = (input_new_task.value).trim()
     let items_tasks = document.getElementsByClassName("item-task") 
     let string_task = ''
-    
+
+    if (new_value == "") {
+        alert("Enter a value to add a task")
+        return
+    }
+
+    if (items_array.length == 0) {
+        div_tasks.innerHTML = string_task
+    }
     string_task = '<div class="item-task">'
         string_task += '<div class="text-task" onclick = "modifyStateItem(' + items_tasks.length + ')">' + new_value + '</div>'
             string_task += '<div class="button-remove">'
@@ -33,10 +41,18 @@ const refactorItems = () => {
     let items_tasks = document.getElementsByClassName("text-task") 
     let buttons = document.querySelectorAll(".button-remove > button")
     let items_length = items_tasks.length
+    showMessageToAddTask(items_length)
     for(let i = 0; i < items_length; i++) {
         buttons[i].setAttribute("id","button-remove" + i)
         buttons[i].setAttribute("onclick", "removeItem(" + i + ")")
         items_tasks[i].setAttribute("onclick", "modifyStateItem(" + i + ")")
+    }
+}
+
+const showMessageToAddTask = (items_length) => {
+    if (items_length == 0) {
+        div_tasks.innerHTML += '<h3 class="no-task-message"><b>Add a task...</b></h3>'
+        return
     }
 }
 
@@ -50,3 +66,5 @@ const modifyStateItem = (index) => {
     items_array[index].finalizado = 'N'
     items_tasks[index].classList.remove("item-task-checked");
 }
+
+showMessageToAddTask(0)

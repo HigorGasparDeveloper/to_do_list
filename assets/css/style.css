@@ -56,9 +56,9 @@ body {
 }
 
 .input-text-task {
-    width: 65%;
+    width: 60%;
     height: 45px;
-    font-size: 25px;
+    font-size: 20px;
     display: flex;
     justify-content: center;
     border-left: 2px solid #E2F0C4;
@@ -66,7 +66,7 @@ body {
     border-right: 2px solid #E2F0C4;
     border-bottom: 2px solid #658129;
     outline: 0;
-    padding-left: 5px;
+    padding-left: 7px;
     transition-delay: 0.1s;
     transition-duration: 0.3s;
     border-radius: 10px;
@@ -74,6 +74,7 @@ body {
 
 .input-text-task:focus {
     border: 2px solid #96BB48;
+    width: 65%;
 }
 
 .button-task {
@@ -87,6 +88,14 @@ body {
     align-items: center;
     justify-content: center;
     border: none;
+    transition-duration: 0.5s;
+}
+
+.button-task:hover {
+    border-radius: 20px;
+    background-color: #fff;
+    border: 2px solid#96BB48;
+    color: #96BB48;
 }
 
 .item-task {
@@ -159,4 +168,8 @@ button{
 
 button:hover {
     filter: brightness(95%);
+}
+
+.no-task-message {
+    color: #658129;
 }
